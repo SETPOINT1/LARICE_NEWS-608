@@ -1,0 +1,23 @@
+<!-- views/login.ejs -->
+
+<h2>Login to Your Account</h2>
+
+<% if (message) { %>
+  <div class="message <%= message.type %>">
+    <%= message.text %>
+  </div>
+<% } %>
+
+<form action="/login" method="POST" class="register-form">
+  <div class="form-group">
+    <label for="studentId">Student ID</label>
+    <input type="text" id="studentId" name="studentId" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+  </div>
+  <button type="submit">Login</button>
+</form>
+
+<p>Don't have an account? <a href="/register">Register here</a></p>

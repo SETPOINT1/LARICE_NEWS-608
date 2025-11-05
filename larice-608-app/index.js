@@ -5,7 +5,7 @@ const http = require('http');
 const { Server } = require("socket.io");
 const path = require('path');
 const session = require('express-session');
-const expressLayouts = require('express-ejs-layouts'); // <--- เพิ่มตรงนี้ 1
+const expressLayouts = require('express-ejs-layouts');
 
 // นำเข้าการตั้งค่า Sequelize
 const sequelize = require('./config/database');
@@ -23,7 +23,7 @@ const sessionStore = new SequelizeStore({
 });
 
 app.use(session({
-  secret: 'your_secret_key_here', // เปลี่ยนเป็น key ลับของคุณ
+  secret: 'your_secret_key_here',
   store: sessionStore,
   resave: false,
   saveUninitialized: false,
@@ -38,15 +38,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ตั้งค่า View Engine
-app.use(expressLayouts); // <--- เพิ่มตรงนี้ 2 (ต้องอยู่ก่อน app.set('view engine', ...))
-app.set('layout', './layouts/main'); // (Optional) ตั้งค่า layout เริ่มต้น
+app.use(expressLayouts);
+app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Middleware สำหรับส่งข้อมูล session ไปยังทุก view
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  res.locals.user = req.session.user;
+  next();
+});
 
-// Routes
+// Routes (เหลือแค่บล็อกนี้บล็อกเดียว)
 const mainRoutes = require('./routes/index');
+const newsRoutes = require('./routes/newsRoutes');
+
 app.use('/', mainRoutes);
+app.use('/news', newsRoutes);
 
 
 // Socket.IO connection

@@ -6,9 +6,19 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/news">News</a></li>
-      <li><a href="/chat">Chat</a></li>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/register">Register</a></li>
+      
+      <% if (isAuthenticated) { %>
+        <li><a href="/chat">Chat</a></li>
+        <li>
+          <form action="/logout" method="POST" style="display: inline;">
+            <button type="submit" class="logout-button">Logout</button>
+          </form>
+        </li>
+      <% } else { %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+      <% } %>
+
     </ul>
   </nav>
 </header>

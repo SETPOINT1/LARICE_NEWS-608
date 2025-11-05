@@ -41,3 +41,216 @@ footer {
   background-color: #333;
   color: white;
 }
+
+/* Form Styles */
+.register-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button[type="submit"]:hover {
+  background-color: #4cae4c;
+}
+
+/* Message Styles */
+.message {
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 500px;
+  border-radius: 4px;
+  text-align: center;
+}
+.message.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  border: 1px solid #d6e9c6;
+}
+.message.error {
+  background-color: #f2dede;
+  color: #a94442;
+  border: 1px solid #ebccd1;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1em; /* ทำให้ขนาดตัวอักษรเท่ากับลิงก์อื่นๆ */
+  font-family: inherit; /* ทำให้ font เหมือนกับลิงก์อื่นๆ */
+  padding: 0;
+  margin: 0;
+}
+.logout-button:hover {
+  text-decoration: underline;
+}
+
+/* public/css/style.css */
+/* ... */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* News List Styles */
+.news-list-container {
+  margin-top: 20px;
+}
+.news-item {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.news-item h3 {
+  margin-top: 0;
+}
+.news-item h3 a {
+  text-decoration: none;
+  color: #333;
+}
+.news-item h3 a:hover {
+  color: #0056b3;
+}
+.news-meta {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* Single News Page Styles */
+.single-news-container {
+  background: #fff;
+  padding: 20px 30px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.single-news-container h1 {
+  margin-top: 0;
+}
+.news-content {
+  margin-top: 20px;
+  line-height: 1.6; /* ทำให้อ่านง่ายขึ้น */
+  font-size: 1.1em;
+}
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Filter Form Styles */
+.filter-container {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.filter-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.filter-form .search-input {
+  flex-grow: 1; /* ทำให้ช่อง search ขยายเต็มพื้นที่ที่เหลือ */
+}
+.filter-form .category-select {
+  min-width: 180px;
+}
+.filter-form button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.filter-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Admin Action Buttons */
+.admin-actions {
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+.edit-btn, .delete-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+.edit-btn {
+  background-color: #f0ad4e;
+  margin-right: 5px;
+}
+.edit-btn:hover {
+  background-color: #ec971f;
+}
+.delete-btn {
+  background-color: #d9534f;
+}
+.delete-btn:hover {
+  background-color: #c9302c;
+}
+.single-page-actions {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  border-top: none;
+}

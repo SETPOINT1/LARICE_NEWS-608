@@ -1,0 +1,22 @@
+<article class="single-news-container">
+  <h1><%= newsItem.title %></h1>
+  <p class="news-meta">
+    Posted on <%= newsItem.createdAt.toLocaleDateString() %> 
+    by <%= newsItem.authorName %> 
+    in <strong><%= newsItem.category %></strong>
+  </p>
+
+  <% if (isAuthenticated && user && user.id === newsItem.authorId) { %>
+    <div class="admin-actions single-page-actions">
+      <a href="/news/edit/<%= newsItem.id %>" class="edit-btn">Edit Post</a>
+      <form action="/news/delete/<%= newsItem.id %>" method="POST" style="display: inline;">
+        <button type="submit" class="delete-btn" onclick="return confirm('Are you sure you want to delete this post?');">Delete Post</button>
+      </form>
+    </div>
+  <% } %>
+
+  <div class="news-content">
+    <%- newsItem.content.replace(/\n/g, '<br>') %>
+  </div>
+  <a href="/news" class="back-link">&larr; Back to all news</a>
+</article>
