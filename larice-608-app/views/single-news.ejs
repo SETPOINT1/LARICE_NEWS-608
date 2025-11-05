@@ -6,7 +6,7 @@
     in <strong><%= newsItem.category %></strong>
   </p>
 
-  <% if (isAuthenticated && user && user.id === newsItem.authorId) { %>
+  <% if (isAuthenticated && user && (user.id === newsItem.authorId || user.role === 'admin')) { %>
     <div class="admin-actions single-page-actions">
       <a href="/news/edit/<%= newsItem.id %>" class="edit-btn">Edit Post</a>
       <form action="/news/delete/<%= newsItem.id %>" method="POST" style="display: inline;">

@@ -54,7 +54,7 @@
     <a href="/news/<%= news.id %>" class="read-more">Read More</a>
 
     <!-- เพิ่มส่วนนี้: Admin Actions -->
-    <% if (isAuthenticated && user && user.id === news.authorId) { %>
+    <% if (isAuthenticated && user && (user.id === news.authorId || user.role === 'admin')) { %>
       <div class="admin-actions">
         <a href="/news/edit/<%= news.id %>" class="edit-btn">Edit</a>
         <form action="/news/delete/<%= news.id %>" method="POST" style="display: inline;">

@@ -50,7 +50,7 @@ exports.getEditNews = async (req, res) => {
 
     // **Security Check:** ตรวจสอบว่าผู้ใช้ที่ล็อกอินอยู่เป็นเจ้าของโพสต์หรือไม่
     // ในอนาคตจะเปลี่ยนเป็นเช็คว่าเป็น Admin หรือไม่
-    if (news.authorId !== req.session.user.id) {
+    if (news.authorId !== req.session.user.id && req.session.user.role !== 'admin') {
       return res.redirect('/news'); // ถ้าไม่ใช่เจ้าของ ให้กลับไปหน้า news
     }
 
@@ -78,7 +78,7 @@ exports.postEditNews = async (req, res) => {
     }
 
     // **Security Check:**
-    if (news.authorId !== req.session.user.id) {
+    if (news.authorId !== req.session.user.id && req.session.user.role !== 'admin') {
       return res.redirect('/news');
     }
 
@@ -107,7 +107,7 @@ exports.postDeleteNews = async (req, res) => {
     }
 
     // **Security Check:**
-    if (news.authorId !== req.session.user.id) {
+    if (news.authorId !== req.session.user.id && req.session.user.role !== 'admin') {
       return res.redirect('/news');
     }
 
